@@ -1778,10 +1778,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -1799,9 +1795,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
 //
 //
 //
@@ -1831,8 +1824,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "WelcomePages"
+  name: "WelcomePages",
+  data: function data() {
+    return {
+      day1: '',
+      day2: '',
+      hour1: '',
+      hour2: '',
+      minute1: '',
+      minute2: '',
+      second1: '',
+      second2: ''
+    };
+  },
+  created: function created() {
+    setInterval(this.getTime);
+  },
+  methods: {
+    getTime: function getTime() {
+      var countDownDate = new Date("Jan 5, 2019 0:0:0").getTime(); // Get todays date and time
+
+      var now = new Date().getTime(); // Find the distance between now and the count down date
+
+      var distance = countDownDate - now; // Time calculations for days, hours, minutes and seconds
+
+      this.day1 = Math.floor(distance / (1000 * 60 * 60 * 240));
+      this.day2 = Math.floor(distance / (1000 * 60 * 60 * 24));
+      this.hour1 = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60) / 10);
+      this.hour2 = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60) % 10);
+      this.minute1 = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60) / 10);
+      this.minute2 = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60) % 10);
+      this.second1 = Math.floor(distance % (1000 * 60) / 1000 / 10);
+      this.second2 = Math.floor(distance % (1000 * 60) / 1000 % 10);
+    }
+  }
 });
 
 /***/ }),
@@ -6108,7 +6136,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\ndiv[data-v-1818a84c]{\n    width: 100vw;\n    height: 100vh;\n    background-image: url(\"/image/tet2019.jpg\");\n    background-size: cover;\n    background-attachment:fixed;\n    background-position: center;\n}\n", ""]);
 
 // exports
 
@@ -6127,7 +6155,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.time[data-v-76fd4a8b] {\n    font-family: Aldrich;\n    font-size: 20vh;\n    line-height: 90vh;\n}\nh1[data-v-76fd4a8b]{\n}\n", ""]);
 
 // exports
 
@@ -37378,26 +37406,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "card card-default" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _vm._v("Example Component")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _vm._v(
-              "\n                    I'm an example component.\n                    "
-            ),
-            _c("main", [_c("router-view", { key: _vm.$route.fullPath })], 1)
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-md-8" }, [
+          _c("div", { staticClass: "card card-default" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _vm._v("Example Component")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _vm._v(
+                "\n                    I'm an example component.\n                "
+              )
+            ])
           ])
         ])
       ])
     ])
-  ])
-}
-var staticRenderFns = []
+  }
+]
 render._withStripped = true
 
 
@@ -37420,10 +37454,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _vm._v("\n        mainlayout\n        "),
-      _c("main", [_c("router-view", { key: _vm.$route.fullPath })], 1)
-    ])
+    _c("main", [_c("router-view", { key: _vm.$route.fullPath })], 1)
   ])
 }
 var staticRenderFns = []
@@ -37448,7 +37479,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    asdasdasdasdasdasdasd21314123\n")])
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12 text-center" }, [
+      _c("h1", { staticClass: "time text-success" }, [
+        _vm._v(
+          _vm._s(_vm.day1) +
+            _vm._s(_vm.day2) +
+            "/" +
+            _vm._s(_vm.hour1) +
+            _vm._s(_vm.hour2) +
+            ":" +
+            _vm._s(_vm.minute1) +
+            _vm._s(_vm.minute2) +
+            ":" +
+            _vm._s(_vm.second1) +
+            _vm._s(_vm.second2)
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -51625,14 +51674,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************!*\
   !*** ./resources/js/pages/WelcomePages.vue ***!
   \*********************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _WelcomePages_vue_vue_type_template_id_76fd4a8b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WelcomePages.vue?vue&type=template&id=76fd4a8b&scoped=true& */ "./resources/js/pages/WelcomePages.vue?vue&type=template&id=76fd4a8b&scoped=true&");
 /* harmony import */ var _WelcomePages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WelcomePages.vue?vue&type=script&lang=js& */ "./resources/js/pages/WelcomePages.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _WelcomePages_vue_vue_type_style_index_0_id_76fd4a8b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WelcomePages.vue?vue&type=style&index=0&id=76fd4a8b&scoped=true&lang=css& */ "./resources/js/pages/WelcomePages.vue?vue&type=style&index=0&id=76fd4a8b&scoped=true&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _WelcomePages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _WelcomePages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _WelcomePages_vue_vue_type_style_index_0_id_76fd4a8b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WelcomePages.vue?vue&type=style&index=0&id=76fd4a8b&scoped=true&lang=css& */ "./resources/js/pages/WelcomePages.vue?vue&type=style&index=0&id=76fd4a8b&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -51664,7 +51714,7 @@ component.options.__file = "resources/js/pages/WelcomePages.vue"
 /*!**********************************************************************!*\
   !*** ./resources/js/pages/WelcomePages.vue?vue&type=script&lang=js& ***!
   \**********************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51723,15 +51773,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [{
-  path: '/tuan/abc',
-  name: 'HomePage',
-  component: _pages_WelcomePages__WEBPACK_IMPORTED_MODULE_0__["default"],
+  path: '/',
+  redirect: '/2019',
+  name: 'Home',
   meta: {
     requiresAuth: true
   }
 }, {
-  path: '/',
-  redirect: '/tuan/abc',
+  path: '/2019',
+  name: 'HappyNewYear',
+  component: _pages_WelcomePages__WEBPACK_IMPORTED_MODULE_0__["default"],
   meta: {
     requiresAuth: true
   }

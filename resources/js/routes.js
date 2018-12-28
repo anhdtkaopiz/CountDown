@@ -1,17 +1,18 @@
-import Welcome from './pages/WelcomePages';
+import HappyNewYear from './pages/WelcomePages';
 import  Ex from  './components/ExampleComponent';
 export const routes = [
     {
-        path: '/tuan/abc',
-        name: 'HomePage',
-        component: Welcome,
+        path: '/',
+        redirect: '/2019',
+        name: 'Home',
         meta: {
             requiresAuth: true
         }
     },
     {
-        path: '/',
-        redirect: '/tuan/abc',
+        path: '/2019',
+        name: 'HappyNewYear',
+        component: HappyNewYear,
         meta: {
             requiresAuth: true
         }

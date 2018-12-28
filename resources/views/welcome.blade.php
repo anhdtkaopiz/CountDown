@@ -8,20 +8,16 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aldrich" />
 
         <!-- Styles -->
         <link rel="stylesheet" href="/css/app.css" type="text/css">
+
     </head>
     <body>
     <body>
-    <div>
-        welcome blade
-    </div>
     <div id="app">
         <main-layout></main-layout>
-    </div>
-    <div id="app">
-        <welcome></welcome>
     </div>
     <script type="text/javascript" src="{{mix('js/app.js')}}"></script>
 

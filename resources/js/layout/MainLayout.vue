@@ -16,7 +16,7 @@
     div{
         width: 100vw;
         height: 100vh;
-        background-image: url("/image/tet2019.jpg");
+        background-image: url("/image/background.jpg");
         background-size: cover;
         background-attachment:fixed;
         background-position: center;
